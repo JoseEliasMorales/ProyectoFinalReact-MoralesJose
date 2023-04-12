@@ -1,9 +1,9 @@
-.contenedor{
+.contenedor {
     background-color: #fff;
     padding: 1rem;
 }
 
-.contenedorZapatilla{
+.contenedorZapatilla {
     display: flex;
     margin: auto;
     padding: 2rem;
@@ -16,46 +16,41 @@
         100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
+.imagenZapatilla {
+    object-fit: contain;
+}
 
-
-.detalles{
+.detalles {
     display: flex;
     padding: 2rem;
     align-items: center;
 }
 
-.nombreMarcaDescripcion{
+.nombreMarcaDescripcion {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-
-.marca{
-    font-family: 'Libre Franklin', sans-serif;
+.marca {
+    font-family: "Libre Franklin", sans-serif;
     font-size: 2rem;
     font-weight: 600;
 }
 
-.nombre{
-    font-family: 'Libre Franklin', sans-serif;
+.nombre {
+    font-family: "Libre Franklin", sans-serif;
     color: #7d807b;
     font-weight: 300;
 }
 
-.descripcion{
+.descripcion {
     max-width: 50%;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
-.contadorPrecio{
+.contadorPrecio {
     display: flex;
     align-items: center;
     gap: 8rem;
-}
-
-.precioUnico{
-    font-family: 'Libre Franklin', sans-serif;
-    font-weight: 800;
-    font-size: 1.5rem;
 }

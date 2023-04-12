@@ -1,40 +1,55 @@
-.contenedorContador{
+.contenedorContador {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
 }
 
 .contador {
     display: flex;
 
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: "Libre Franklin", sans-serif;
     font-size: 1.2rem;
     align-items: center;
     text-align: center;
-    gap: 3rem;
+    gap: 1rem;
 }
 
-.menos, .mas {
+.menos,
+.mas {
     cursor: pointer;
     font-size: 2rem;
-    color: rgb(152, 98, 40);
-    text-shadow: #FC0 1px 0 5px;
+    color: rgb(215, 156, 30);
+    text-shadow: #fc0 1px 0 5px;
+    width: 50px;
+    border: none;
+    outline: none;
+    background-color: #f8f8f8;
 }
-
 
 .cuenta {
     font-size: 1.3rem;
     align-self: center;
+    width: 75px;
 }
 
+.agregar {
+    width: 220px;
+    font-size: 15px;
+}
 
+.buttonAgregar {
+    transform: translate(-50%, -50%);
+}
 
-.agregar{
-    margin-top: 1rem;
-    background-color: #393939;
+.agregar:hover .transition {
+    width: 15em;
+    height: 15em;
+}
+
+.precioUnico {
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
     width: 200px;
-    height: 50px;
-    outline: 1px solid rgba(186, 186, 186, 0.5);
-    color: white;
-    border-radius: 30px;
 }

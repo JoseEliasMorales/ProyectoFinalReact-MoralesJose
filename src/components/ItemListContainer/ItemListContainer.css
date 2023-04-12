@@ -1,11 +1,11 @@
-.catalogo{
+.catalogo {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
 }
 
-.marca{
+.marca {
     width: 300px;
     max-height: 180px;
     object-fit: contain;
