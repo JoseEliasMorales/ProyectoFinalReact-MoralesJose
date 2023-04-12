@@ -1,0 +1,61 @@
+.contenedor{
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.contenedorZapatilla{
+    display: flex;
+    margin: auto;
+    padding: 2rem;
+    background-color: #f8f8f8;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+
+
+.detalles{
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+}
+
+.nombreMarcaDescripcion{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.marca{
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.nombre{
+    font-family: 'Libre Franklin', sans-serif;
+    color: #7d807b;
+    font-weight: 300;
+}
+
+.descripcion{
+    max-width: 50%;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.contadorPrecio{
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+}
+
+.precioUnico{
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+}

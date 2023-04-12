@@ -1,0 +1,40 @@
+.contenedorContador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contador {
+    display: flex;
+
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.2rem;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+}
+
+.menos, .mas {
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgb(152, 98, 40);
+    text-shadow: #FC0 1px 0 5px;
+}
+
+
+.cuenta {
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+
+
+.agregar{
+    margin-top: 1rem;
+    background-color: #393939;
+    width: 200px;
+    height: 50px;
+    outline: 1px solid rgba(186, 186, 186, 0.5);
+    color: white;
+    border-radius: 30px;
+}
