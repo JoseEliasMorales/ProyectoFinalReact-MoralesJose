@@ -54,3 +54,9 @@
     align-items: center;
     gap: 8rem;
 }
+
+.finalizarCompra{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

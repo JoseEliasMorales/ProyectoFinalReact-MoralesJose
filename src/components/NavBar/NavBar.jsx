@@ -2,6 +2,7 @@ import "./NavBar.css";
 import logoUrbanRoots from "./LogoUrbanRoots.png";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import Sesion from "../Sesion/Sesion";
 
 const NavBar = () => {
     return (
@@ -56,9 +57,12 @@ const NavBar = () => {
                         </NavLink>
                     </li>
                     <li className="itemMenu">
-                        <CartWidget />
+                            <CartWidget />
                     </li>
                 </ul>
+            </div>
+            <div className="containerSesion">
+                <Sesion/>
             </div>
         </header>
     );

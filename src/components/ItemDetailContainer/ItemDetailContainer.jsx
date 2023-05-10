@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getUnaZapatilla } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { db } from "../../services/firebase/config";
+import { getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const [zapatilla, setZapatilla] = useState([]);
@@ -9,12 +10,16 @@ const ItemDetailContainer = () => {
     const { idZapatilla } = useParams();
 
     useEffect(() => {
-        getUnaZapatilla(idZapatilla)
-            .then((response) => setZapatilla(response))
-            .catch((error) => console.error(error));
-    }, [idZapatilla]);
+        const unaZapatilla = doc(db,'zapatillas', idZapatilla)
 
-    console.log(zapatilla);
+
+        getDoc(unaZapatilla)
+            .then(res=>{
+                const nuevaZapatilla = {id: res.id, ...res.data()}
+                setZapatilla(nuevaZapatilla)
+            })
+            .catch(error => console.error(error))
+    }, [idZapatilla]);
 
     return (
         <div>

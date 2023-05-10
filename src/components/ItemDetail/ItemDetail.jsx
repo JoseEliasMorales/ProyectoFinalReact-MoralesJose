@@ -1,7 +1,27 @@
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { useState, useContext } from "react";
+import TerminarCompra from "../TerminarCompra/TerminarCompra";
+import { CarritoContext } from "../../context/CarritoContext";
+import { Link } from "react-router-dom";
 
-const ItemDetail = ({ id, nombre, precio, img, marca }) => {
+
+const ItemDetail = ({ id, nombre, precio, img, marca, stock }) => {
+    const [agregarCantidad, setAgregarCantidad] = useState(0);
+
+    const { agregarAlCarrito } = useContext(CarritoContext);
+
+
+    const handlerQuantity = (cantidad) => {
+        setAgregarCantidad(cantidad);
+
+        const item = { id, nombre, precio,marca, img };
+        /* const buscarProducto = agregarAlCarrito.find(id=>item.id ===id)
+        buscarProducto
+            ? cantidad++
+            :  */agregarAlCarrito(item, cantidad);
+    };
+
     return (
         <div className="contenedor">
             <div className="contenedorZapatilla">
@@ -23,7 +43,24 @@ const ItemDetail = ({ id, nombre, precio, img, marca }) => {
                         </p>
                     </div>
                     <div className="contadorPrecio">
-                        <ItemCount precio={precio} />
+                        {agregarCantidad > 0 ? (
+                            <Link to='/cart' className="finalizarCompra">
+                                <ItemCount
+                                    precio={precio}
+                                    inicial={1}
+                                    stock={stock}
+                                    funcionAgregar={handlerQuantity}
+                                />
+                                <TerminarCompra />
+                            </Link>
+                        ) : (
+                            <ItemCount
+                                precio={precio}
+                                inicial={1}
+                                stock={stock}
+                                funcionAgregar={handlerQuantity}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

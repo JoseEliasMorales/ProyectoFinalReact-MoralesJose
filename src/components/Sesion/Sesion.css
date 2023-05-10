@@ -1,0 +1,21 @@
+.contenedorIniciarCrearSesion{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.iniciar, .crear, .o{
+    border: none;
+    outline: none;
+    background-color: #f8f8f8;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    height: 18px;
+}
+
+.o{
+    font-size:1.1rem ;
+}

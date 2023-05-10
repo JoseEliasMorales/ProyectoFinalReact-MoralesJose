@@ -2,9 +2,9 @@ import { formatearPeso } from "../../asyncmock";
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = ({ precio }) => {
+const ItemCount = ({ precio, inicial, stock, funcionAgregar }) => {
     const [contador, setContador] = useState(1);
-    const stock = 10;
+    
     const incrementar = () => {
         if (contador < stock) {
             setContador(contador + 1);
@@ -12,14 +12,11 @@ const ItemCount = ({ precio }) => {
     };
 
     const decrementar = () => {
-        if (contador > 1) {
+        if (contador > inicial) {
             setContador(contador - 1);
         }
     };
 
-    function onAdd() {
-        console.log(`Se a agregado ${contador} items al carrito`);
-    }
 
     const precioFinal = formatearPeso.format(precio * contador);
 
@@ -43,11 +40,11 @@ const ItemCount = ({ precio }) => {
                 </div>
                 <button
                     className="button agregar"
-                    onClick={onAdd}
+                    onClick={()=>funcionAgregar(contador)}
                 >
-                    <span class="transition buttonAgregar"></span>
-                    <span class="gradient"></span>
-                    <span class="label textButton">Agregar al Carrito</span>
+                    <span className="transition buttonAgregar"></span>
+                    <span className="gradient"></span>
+                    <span className="label textButton">Agregar al Carrito</span>
                 </button>
             </div>
             <div className="precioUnico">{precioFinal}</div>

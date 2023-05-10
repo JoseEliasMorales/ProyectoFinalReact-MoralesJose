@@ -20,16 +20,15 @@
     transform: scale(1.05);
 }
 
-.item:active {
-    transform: scale(0.95) rotateZ(1.7deg);
-}
 
 .itemTitle {
     padding: 1rem;
     width: 80%;
+    height: 7%;
     text-transform: uppercase;
     border-bottom: 2px solid black;
     border-width: 25%;
+    font-size: 1em;
 }
 
 .imageItem {

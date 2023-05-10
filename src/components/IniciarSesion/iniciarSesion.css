@@ -1,0 +1,66 @@
+.iniciarSesion {
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;;
+}
+
+.iniciarSesion .usuario {
+    position: relative;
+}
+
+.iniciarSesion .usuario input {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #39393978;
+    outline: none;
+    background: transparent;
+}
+
+.iniciarSesion .usuario label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #39393978;
+    pointer-events: none;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.iniciarSesion .usuario input:focus ~ label,
+.iniciarSesion .usuario input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #5d5d5d;
+    font-size: 12px;
+}
+
+.btnIniciarSesion {
+    width: 140px;
+    height: 45px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.btnIniciarSesion:hover {
+    background-color: #fff;
+    box-shadow: 0px 15px 20px rgba(14, 14, 14, 0.4);
+    color: #1b1b1b;
+    transform: translateY(-7px);
+}
+
+
