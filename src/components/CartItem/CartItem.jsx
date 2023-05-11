@@ -1,7 +1,16 @@
+import { useContext } from 'react'
 import { formatearPeso } from '../../asyncmock'
 import './CartItem.css'
+import { CarritoContext } from '../../context/CarritoContext'
 
 const CartItem = ({item, cantidad}) => {
+
+    const {eliminarDelCarrito}=useContext(CarritoContext)
+    const handlerEliminar = ()=>{
+        eliminarDelCarrito(item.id)
+    }
+    
+
 return (
     <div className="contenedor--cart">
             <div className="contenedorZapatilla contenedorZapatilla--cart ">
@@ -21,11 +30,11 @@ return (
                     </div>
                 </div>
                 <div className='precioCantidad'>
-                    <p className='cantidad'>X {cantidad}</p>
+                <div><p className='cantidad'>X {cantidad}</p></div>
                     <p className='precio'>{formatearPeso.format(item.precio * cantidad)}</p>
                 </div>
                 <div className='contenedorEliminar'>
-                    <button className='mas mas--cart'>X</button>
+                    <button className='mas mas--cart' onClick={handlerEliminar}>X</button>
                 </div>
             </div>
         </div>

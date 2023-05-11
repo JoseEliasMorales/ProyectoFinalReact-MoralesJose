@@ -1,12 +1,13 @@
 .contenedor--cart{
     padding: 0.7rem;
-    max-width: 50%;
+    
 }
 
 .contenedorZapatilla--cart{
     justify-content: space-between;
     padding: 0 1rem 0 1rem;
     transition: all 0.5s;
+    gap: 3rem;
 }
 
 .contenedorZapatilla--cart:hover{
@@ -39,6 +40,8 @@
 
 .cantidad{
     font-family: "Libre Franklin", sans-serif;
+    width: 270px;
+    text-align: center;
 }
 
 .precioCantidad{
@@ -57,4 +60,9 @@
     font-size: 1.5rem;
 }
 
+
+.errorStock{
+    font-size: 0.9rem;
+    color: red;
+}
 

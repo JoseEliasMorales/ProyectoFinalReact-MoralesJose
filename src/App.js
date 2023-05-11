@@ -6,11 +6,10 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./components/Cart/Cart";
 import Usuario from "./components/Usuario/Usuario";
-import { useState } from "react";
+import Checkout from "./components/Checkout/Checkout";
 
 
 function App() {
-    const [usuario, setUsuario]=useState(null)
 
     return (
         <>
@@ -31,7 +30,8 @@ function App() {
                             element={<ItemDetailContainer />}
                         />
                         <Route path='/cart' element={<Cart />} />
-                        <Route path='/sesion' element={<Usuario setUsuario={setUsuario}/>}/>
+                        <Route path='/sesion' element={<Usuario />}/>
+                        <Route path="/checkout" element={<Checkout />}/>
                     </Routes>
                 </CarritoProvider>
             </BrowserRouter>

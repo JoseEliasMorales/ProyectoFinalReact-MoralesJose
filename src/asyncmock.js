@@ -3,3 +3,4 @@ export const formatearPeso = new Intl.NumberFormat("es-AR", {
     currency: "ARS",
     minimumFractionDigits: 0,
 });
+

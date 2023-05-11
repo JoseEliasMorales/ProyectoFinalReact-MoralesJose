@@ -7,6 +7,7 @@ import { getDoc, doc } from "firebase/firestore";
 const ItemDetailContainer = () => {
     const [zapatilla, setZapatilla] = useState([]);
 
+
     const { idZapatilla } = useParams();
 
     useEffect(() => {

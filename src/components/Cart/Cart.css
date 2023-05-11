@@ -1,0 +1,26 @@
+.contenedorCarrito{
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito{
+    min-width: 50%;
+}
+
+.totalCarrito{
+    margin-right: 5rem;
+}
+.total{
+    font-size: 2rem;
+    font-family: "Libre Franklin", sans-serif;
+    text-align: center;
+}
+
+.finalizar--compra{
+    background-color: green;
+    transition: all 0.45s;
+}
+
+.finalizar--compra:active{
+    transform: translateY(-7px);
+}

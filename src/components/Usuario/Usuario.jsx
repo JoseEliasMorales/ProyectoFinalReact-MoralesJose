@@ -19,29 +19,25 @@ const Usuario = () => {
         setIniciarOCrear(true)
     }
     if(usuario===null){ 
-            if(iniciarOCrear){
                 return (
                     <div className="sesion">
-                        <IniciarSesion setUsuario={setUsuario}/>
+                        {
+                            iniciarOCrear
+                                ?<IniciarSesion setUsuario={setUsuario}/>
+                                :<CrearUsuario setIniciarOCrear={setIniciarOCrear}/>
+                                
+                        }
                         <p>ó</p>
-                        <button className="btnCrearUsuario" onClick={handleChangeCrear}>Crear Usuario</button>
+                        {
+                            iniciarOCrear
+                                ?<button className="btnCrearUsuario" onClick={handleChangeCrear}>Registrarse</button>
+                                :<button className="btnCrearUsuario" onClick={handleChangeIniciar}>Iniciar Sesion</button>
+                        }
                         <hr />
                         <p>O puedes autenticarte de la siguiente forma</p>
                         <img className="zapatillaPintura" src={Zapatilla} alt="pintura zapatillas" />
                     </div>
                 )
-            }else{
-                return(
-                    <div className="sesion">
-                        <CrearUsuario setIniciarOCrear={setIniciarOCrear}/>
-                        <p>ó</p>
-                        <button className="btnCrearUsuario" onClick={handleChangeIniciar}>Iniciar Sesion</button>
-                        <hr />
-                        <p>O puedes autenticarte de la siguiente forma</p>
-                        <img className="zapatillaPintura" src={Zapatilla} alt="pintura zapatillas" />
-                    </div>
-                )
-            }
         }else{
             return(
                 <div className="sesion"> 

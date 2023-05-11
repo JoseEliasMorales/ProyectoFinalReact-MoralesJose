@@ -6,20 +6,17 @@ import { CarritoContext } from "../../context/CarritoContext";
 import { Link } from "react-router-dom";
 
 
+
 const ItemDetail = ({ id, nombre, precio, img, marca, stock }) => {
     const [agregarCantidad, setAgregarCantidad] = useState(0);
 
-    const { agregarAlCarrito } = useContext(CarritoContext);
+    const {agregarAlCarrito } = useContext(CarritoContext);
 
 
     const handlerQuantity = (cantidad) => {
-        setAgregarCantidad(cantidad);
-
-        const item = { id, nombre, precio,marca, img };
-        /* const buscarProducto = agregarAlCarrito.find(id=>item.id ===id)
-        buscarProducto
-            ? cantidad++
-            :  */agregarAlCarrito(item, cantidad);
+            setAgregarCantidad(cantidad);
+            const item = { id, nombre, precio,marca, img, stock };
+            agregarAlCarrito(item, cantidad)
     };
 
     return (
@@ -44,15 +41,17 @@ const ItemDetail = ({ id, nombre, precio, img, marca, stock }) => {
                     </div>
                     <div className="contadorPrecio">
                         {agregarCantidad > 0 ? (
-                            <Link to='/cart' className="finalizarCompra">
+                            <div>
                                 <ItemCount
                                     precio={precio}
                                     inicial={1}
                                     stock={stock}
                                     funcionAgregar={handlerQuantity}
                                 />
-                                <TerminarCompra />
-                            </Link>
+                                <Link to='/cart' className="finalizarCompra">
+                                    <TerminarCompra />
+                                </Link>
+                            </div>
                         ) : (
                             <ItemCount
                                 precio={precio}

@@ -2,12 +2,17 @@ import { formatearPeso } from "../../asyncmock";
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = ({ precio, inicial, stock, funcionAgregar }) => {
+const ItemCount = ({ precio, inicial, stock, funcionAgregar,cantidad }) => {
     const [contador, setContador] = useState(1);
     
+    
+
     const incrementar = () => {
         if (contador < stock) {
-            setContador(contador + 1);
+            
+                setContador(contador + 1);
+            
+            
         }
     };
 

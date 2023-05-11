@@ -4,19 +4,22 @@ export const CarritoContext = createContext({carrito:[]})
 
 export const CarritoProvider = ({children})=>{
     const [carrito, setCarrito]= useState([])
-
-
-    const agregarAlCarrito =(item, cantidad)=>{
-        if(!enCarrito(item.id)){
-            setCarrito(prev=>[...prev, {item, cantidad}])
+    console.log(carrito);
+    const agregarAlCarrito =(item,cantidad)=>{
+        if(enCarrito(item.id)){
+            console.log("producto a agregado");
         }else{
-            console.log('Ya se encuentra en el carrito');
+            setCarrito(prev=>[...prev,{item,cantidad}])
         }
-    }
+    } 
 
+
+
+    
+    
 
     const eliminarDelCarrito=(id)=>{
-        const actualizarCarrito = carrito.filter(item=>item.id===id)
+        const actualizarCarrito = carrito.filter(prod=>prod.item.id!==id)
         setCarrito(actualizarCarrito)
     }
 
@@ -24,12 +27,14 @@ export const CarritoProvider = ({children})=>{
         setCarrito([])
     }
 
+
+
     const enCarrito = (id)=>{
-        return carrito.some(item=>item.id ===id)
-    }
+        return carrito.some((prod)=>prod.item.id===id)
+    } 
 
     return(
-        <CarritoContext.Provider value={{carrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito }}>
+        <CarritoContext.Provider value={{carrito, agregarAlCarrito, vaciarCarrito, eliminarDelCarrito}}>
             {children}
         </CarritoContext.Provider>
     )
