@@ -18,20 +18,25 @@ const Checkout = () => {
         total + (producto.item.precio * producto.cantidad),0)
 
   return (
-    <div>
-      <div className='detailsCheckout'>
-        <p className='detailName'>Producto</p>
-        <p className='detailName'>Marca</p>
-        <p className='detailName'>Nombre</p>
-        <p className='detailName'>Cantidad</p>
-        <p className='detailName'>Precio</p>
-      </div>
-      <div className='contenedorCheckout'>{carrito.map(item=><CarritoCheckOut key={item.item.id}{...item}/>)}
-        <div className='checkout'>
-            <p className='itemTotal'>Total: {formatearPeso.format(total)}</p>
+    <>
+      <h3 className='tituloResumen'>Resumen de tu compra</h3>
+      <div className='contenedorItemsCheckout'>
+        <div className='contenedorDetailsCheckout'>
+          <div className='detailsCheckout'>
+            <p className='detailName'>Producto</p>
+            <p className='detailName'>Marca</p>
+            <p className='detailName'>Nombre</p>
+            <p className='detailName'>Cantidad</p>
+            <p className='detailName'>Precio</p>
+          </div>
+          <div className='contenedorCheckout'>{carrito.map(item=><CarritoCheckOut key={item.item.id}{...item}/>)}
+            <div className='checkout'>
+                <p className='itemTotal'>Total: {formatearPeso.format(total)}</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
     
     
   )

@@ -4,6 +4,7 @@
     align-items: center;
     text-decoration: none;
     color: black;
+    margin: 1rem 2rem 0 0;
 }
 
 .iniciar, .crear, .o{
@@ -18,4 +19,20 @@
 
 .o{
     font-size:1.1rem ;
+}
+
+.nombreSesion{
+    font-size: 1.5rem;
+    font-family: "Josefin Sans", sans-serif;
+
+}
+
+.cerrarSesion{
+    background-color: #f8f8f8;
+    border: none;
+    cursor: pointer;
+}
+
+.imgCerrarSesion{
+    width: 20px;
 }

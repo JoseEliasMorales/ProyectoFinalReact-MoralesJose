@@ -1,3 +1,18 @@
+.tituloResumen{
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+.contenedorItemsCheckout{
+    display: flex;
+}
+
+.contenedorDetailsCheckout{
+    width: 50%;
+}
+
 .checkoutItem{
     display: flex;
     gap: 5rem;
@@ -11,7 +26,6 @@
 }
 .detailsCheckout{
     display: flex;
-    width: 50%;
     justify-content: space-around;
     margin: 4rem 0 0 4rem ;
     gap: 5rem;

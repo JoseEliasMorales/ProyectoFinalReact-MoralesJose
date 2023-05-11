@@ -1,15 +1,20 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import './Usuario.css'
 import IniciarSesion from "../IniciarSesion/IniciarSesion"
 import Zapatilla from './zapatillas.png'
 import CrearUsuario from "../CrearUsuario/CrearUsuario"
+import UsuarioContext from "../../context/UsuarioContext"
 
 const Usuario = () => {
 
     const [iniciarOCrear, setIniciarOCrear]= useState(true)
-    const [usuario, setUsuario]=useState(null)
-    console.log(usuario);
 
+    const {usuario, loginUsuario}=useContext(UsuarioContext)
+
+
+    const handleUsuario=(user)=>{
+        loginUsuario(user)
+    }
 
     const handleChangeCrear = ()=>{
         setIniciarOCrear(false)
@@ -23,7 +28,7 @@ const Usuario = () => {
                     <div className="sesion">
                         {
                             iniciarOCrear
-                                ?<IniciarSesion setUsuario={setUsuario}/>
+                                ?<IniciarSesion setUsuario={handleUsuario}/>
                                 :<CrearUsuario setIniciarOCrear={setIniciarOCrear}/>
                                 
                         }

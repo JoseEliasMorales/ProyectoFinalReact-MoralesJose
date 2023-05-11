@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./iniciarSesion.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-const IniciarSesion = (props) => {
+const IniciarSesion = ({setUsuario}) => {
     const auth = getAuth()
 
     const [email, setEmail]=useState("")
@@ -12,7 +12,7 @@ const IniciarSesion = (props) => {
         e.preventDefault()
 
         signInWithEmailAndPassword(auth, email, contrasenia)
-            .then(props.setUsuario(auth.currentUser))
+            .then(setUsuario(auth.currentUser))
     }
 
     return (
