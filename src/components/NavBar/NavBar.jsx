@@ -57,12 +57,12 @@ const NavBar = () => {
                         </NavLink>
                     </li>
                     <li className="itemMenu">
-                            <CartWidget />
+                        <CartWidget />
                     </li>
                 </ul>
             </div>
             <div className="containerSesion">
-                <Sesion/>
+                <Sesion />
             </div>
         </header>
     );

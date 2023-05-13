@@ -1,6 +1,5 @@
 import './TerminarCompra.css'
 
-
 const TerminarCompra = () => {
     return (
         <div className="button finalizar">

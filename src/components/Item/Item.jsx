@@ -2,11 +2,7 @@ import "./Item.css";
 import { Link } from "react-router-dom";
 import { formatearPeso } from "../../asyncmock";
 
-
-const Item = ({ id, nombre, precio, img, marca  }) => {
-
-
-
+const Item = ({ id, nombre, precio, img, marca }) => {
     return (
         <div
             className="item"
@@ -17,7 +13,9 @@ const Item = ({ id, nombre, precio, img, marca  }) => {
                 src={img}
                 alt={nombre}
             />
-            <p className="itemTitle">{marca} {nombre}</p>
+            <p className="itemTitle">
+                {marca} {nombre}
+            </p>
             <p className="precio">{formatearPeso.format(precio)}</p>
             <Link
                 className="button"

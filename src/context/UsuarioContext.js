@@ -1,36 +1,40 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from "react";
 
-export const UsuarioContext = createContext({usuario:[]})
+export const UsuarioContext = createContext({ usuario: [] });
 
-export const UsuarioProvider = ({children}) => {
-    const [usuario, setUsuario]=useState(null)
+export const UsuarioProvider = ({ children }) => {
+    const [usuario, setUsuario] = useState(null);
 
-    useEffect(()=>{
-      const consultaUsuario = JSON.parse(localStorage.getItem('usuario'))
-      if(consultaUsuario){
-        setUsuario(consultaUsuario)
-      }
-    },[])
+    //consultamos si hay un usuario logueado
+    useEffect(() => {
+        const consultaUsuario = JSON.parse(localStorage.getItem("usuario"));
+        if (consultaUsuario) {
+            setUsuario(consultaUsuario);
+        }
+    }, []);
 
-    const loginUsuario = (user)=>{
-        setUsuario(user)
-    }
+    //funcion login
+    const loginUsuario = (user) => {
+        setUsuario(user);
+    };
 
-    useEffect(()=>{
-      localStorage.setItem('usuario', JSON.stringify(usuario))
-    },[usuario])
-    
-    
+    //Guardamos el usuario en la base al loguear
+    useEffect(() => {
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+    }, [usuario]);
 
-    const cerrarUsuario = ()=>{
-        setUsuario(null)
-    }
-    
-  return (
-    <UsuarioContext.Provider value={{usuario, loginUsuario, cerrarUsuario}}>
-        {children}
-    </UsuarioContext.Provider>
-  )
-}
+    //cerramos sesion
+    const cerrarUsuario = () => {
+        setUsuario(null);
+    };
 
-export default UsuarioContext
+    return (
+        <UsuarioContext.Provider
+            value={{ usuario, loginUsuario, cerrarUsuario }}
+        >
+            {children}
+        </UsuarioContext.Provider>
+    );
+};
+
+export default UsuarioContext;

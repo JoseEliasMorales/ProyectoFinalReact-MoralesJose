@@ -8,12 +8,11 @@ import cerrar from './cerrar-sesion.png'
 const Sesion = () => {
 
 const {usuario, cerrarUsuario}=useContext(UsuarioContext)
-        
-
 
 return (
     <Link className='contenedorIniciarCrearSesion' to='/sesion'>
         {
+            /*consultamos si hay usuario logueado para mostrar inicio de sesion o nombre de usuario*/
             usuario===null
                 ?<><button className='iniciar'>Iniciar Sesion</button><p className='o'>ó</p><button className='crear'>Registrarse</button></>
                 :<><p className='nombreSesion'>{usuario.displayName}</p><button className='cerrarSesion' onClick={cerrarUsuario}><img className='imgCerrarSesion' src={cerrar} alt='cerrar sesion'/></button></>

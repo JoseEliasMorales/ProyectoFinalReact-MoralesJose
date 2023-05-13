@@ -6,11 +6,12 @@ import { CarritoContext } from '../../context/CarritoContext'
 const CartItem = ({item, cantidad}) => {
 
     const {eliminarDelCarrito}=useContext(CarritoContext)
+
+    //manejador para eliminar del carrito
     const handlerEliminar = ()=>{
         eliminarDelCarrito(item.id)
     }
     
-
 return (
     <div className="contenedor--cart">
             <div className="contenedorZapatilla contenedorZapatilla--cart ">
@@ -25,8 +26,6 @@ return (
                             <h2 className="marca marca--cart">{item.marca}</h2>
                             <h3 className="nombre nombre--cart">{item.nombre}</h3>
                         </div>
-                        
-                        
                     </div>
                 </div>
                 <div className='precioCantidad'>

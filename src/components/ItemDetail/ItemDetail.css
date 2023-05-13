@@ -59,4 +59,18 @@
     display: flex;
     flex-direction: column;
     margin-top: 2rem ;
+    text-decoration: none;
+}
+.contenedorSinStock{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: 'Josefin Sans', sans-serif;
+    align-items: center;
+    color: red;
+}
+
+.sinStock{
+    font-size: 1.5rem;
 }

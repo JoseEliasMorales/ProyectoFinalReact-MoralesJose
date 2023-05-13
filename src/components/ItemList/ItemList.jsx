@@ -1,7 +1,7 @@
 import Item from "../Item/Item";
 import "./ItemList.css";
-const ItemList = ({ zapatillas }) => {
 
+const ItemList = ({ zapatillas }) => {
     return (
         <div className="contenedorZapatillas">
             {zapatillas.map((item) => {

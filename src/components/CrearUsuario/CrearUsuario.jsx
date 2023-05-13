@@ -19,24 +19,27 @@ const CrearUsuario = (props) => {
     const [errorContrasenia, setErrorContrasenia] = useState("");
 
     const auth = getAuth();
-
     const MySwal = withReactContent(Swal);
 
+    //manejador para crear usuario
     const handlerCrearUsuario = (e) => {
         e.preventDefault();
         setErrorEmail("");
         setErrorContrasenia("");
 
+        //comprobamos que los emails coincidan
         if (email !== repetirEmail) {
             setErrorEmail("* El email no coincide.");
             return;
         }
 
+        //comprobamos que la contraseña coincida
         if (contrasenia !== repetirContrasenia) {
             setErrorContrasenia("*Las contraseñas no coinciden");
             return;
         }
 
+        //creamos el usuario
         createUserWithEmailAndPassword(auth, email, contrasenia)
             .then(async function () {
                 await updateProfile(auth.currentUser, { displayName: nick });

@@ -2,26 +2,22 @@ import { formatearPeso } from "../../asyncmock";
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = ({ precio, inicial, stock, funcionAgregar,cantidad }) => {
+const ItemCount = ({ precio, inicial, stock, funcionAgregar }) => {
     const [contador, setContador] = useState(1);
-    
-    
 
+    //funcion para aumentar cantidad del producto
     const incrementar = () => {
         if (contador < stock) {
-            
-                setContador(contador + 1);
-            
-            
+            setContador(contador + 1);
         }
     };
 
+    //funcion para disminuir cantidad de producto
     const decrementar = () => {
         if (contador > inicial) {
             setContador(contador - 1);
         }
     };
-
 
     const precioFinal = formatearPeso.format(precio * contador);
 
@@ -45,7 +41,7 @@ const ItemCount = ({ precio, inicial, stock, funcionAgregar,cantidad }) => {
                 </div>
                 <button
                     className="button agregar"
-                    onClick={()=>funcionAgregar(contador)}
+                    onClick={() => funcionAgregar(contador)}
                 >
                     <span className="transition buttonAgregar"></span>
                     <span className="gradient"></span>

@@ -11,15 +11,15 @@ const Cart = () => {
 
     const {carrito, vaciarCarrito}=useContext(CarritoContext)
 
+    //sumamos el total de cada producto
     const totalCantidad = carrito.reduce((total,item)=>
         total + item.cantidad, 0
     )
-    
+
+    //sumamos el precio final de todos los productos
     const total = carrito.reduce((total, producto)=>
         total + (producto.item.precio * producto.cantidad),0)
     
-    
-
 
     if(totalCantidad===0){
         return(

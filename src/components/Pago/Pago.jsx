@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UsuarioContext } from "../../context/UsuarioContext";
 import { CarritoContext } from "../../context/CarritoContext";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
@@ -7,13 +7,11 @@ import { db } from "../../services/firebase/config";
 import Cards from "react-credit-cards-2";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import './Pago.css'
-
+import "./Pago.css";
 
 const Pago = () => {
-
     const { usuario } = useContext(UsuarioContext);
-    const { carrito, vaciarCarrito } = useContext(CarritoContext)
+    const { carrito, vaciarCarrito } = useContext(CarritoContext);
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [telefono, setTelefono] = useState("");
@@ -24,41 +22,38 @@ const Pago = () => {
     const [nombreTarjeta, setNombreTarjeta] = useState("");
     const [ccv, setCcv] = useState("");
     const [fecha, setFecha] = useState("");
-    const [ordenId, setOrdenId]=useState("")
+    const [ordenId, setOrdenId] = useState("");
 
     console.log(ordenId);
-    const MySwal = withReactContent(Swal)
+    const MySwal = withReactContent(Swal);
 
-    
-
-    
-
-    
-
+    //manejador para actualizar el stock
     const handlerControlStock = (id, stock) => {
         if (stock > 0) {
-            const zapatillaRef = doc(db, "zapatillas", id)
-            const stockCarrito = carrito.find(zapatilla=>zapatilla.item.id===id)
+            const zapatillaRef = doc(db, "zapatillas", id);
+            //buscamos el producto a actualizar
+            const stockCarrito = carrito.find(
+                (zapatilla) => zapatilla.item.id === id
+            );
             updateDoc(zapatillaRef, {
-                stock: stock - stockCarrito.cantidad
-            })
-                .then(() => {
-                    console.log("Producto actualizado");
-                })
-                .catch(error => {
-                    console.error(error);
-                })
+                stock: stock - stockCarrito.cantidad,
+            }).catch((error) => {
+                console.error(error);
+            });
         }
-    }
+    };
 
+    //Manejador para controlar el formulario
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        //comprobamos si los email coinciden
         if (email !== emailConfirmacion) {
             setError("Los campos no coinciden");
             return;
         }
 
+        //configuramos los datos de la orden
         const orden = {
             items: carrito.map((prod) => ({
                 id: prod.item.id,
@@ -76,25 +71,25 @@ const Pago = () => {
             email,
         };
 
-        addDoc(collection(db,"ordenes"),orden)
-            .then((docRef)=>{
+        //creamos la orden en la base de datos
+        addDoc(collection(db, "ordenes"), orden)
+            .then((docRef) => {
                 setOrdenId(docRef.id);
                 MySwal.fire({
                     icon: "success",
                     title: "Orden Completada",
-                    text: `Tu codigo de orden es: ${docRef.id}`
-                })
+                    text: `Tu codigo de orden es: ${docRef.id}`,
+                });
             })
-            
-            .then(()=>{
-                vaciarCarrito()
+            .then(() => {
+                vaciarCarrito();
             })
-            .catch(()=>{
+            .catch(() => {
                 setError(
                     "Se produjo un error al crear la orden. Por favor, intentelo de nuevo"
-                )
-            })
-    }
+                );
+            });
+    };
 
     return (
         <div className="datosFormulario">
@@ -110,16 +105,17 @@ const Pago = () => {
                 </div>
             ) : (
                 <div className="formularioYPago">
-                    <form onSubmit={handleSubmit} className="contenedorFormulario">
+                    <form
+                        onSubmit={handleSubmit}
+                        className="contenedorFormulario"
+                    >
                         <div>
                             <h4>Datos para la compra</h4>
                             <div className="usuario">
                                 <input
                                     type="text"
                                     value={nombre}
-                                    onChange={(e) =>
-                                        setNombre(e.target.value)
-                                    }
+                                    onChange={(e) => setNombre(e.target.value)}
                                     id="nombre"
                                     className="inputForm"
                                     required
@@ -137,9 +133,7 @@ const Pago = () => {
                                     className="inputForm"
                                     required
                                 />
-                                <label htmlFor="apellido">
-                                    Apellido:
-                                </label>
+                                <label htmlFor="apellido">Apellido:</label>
                             </div>
                             <div className="usuario">
                                 <input
@@ -152,17 +146,13 @@ const Pago = () => {
                                     className="inputForm"
                                     required
                                 />
-                                <label htmlFor="telefono">
-                                    Telefono:
-                                </label>
+                                <label htmlFor="telefono">Telefono:</label>
                             </div>
                             <div className="usuario">
                                 <input
                                     type="email"
                                     value={email}
-                                    onChange={(e) =>
-                                        setEmail(e.target.value)
-                                    }
+                                    onChange={(e) => setEmail(e.target.value)}
                                     id="email"
                                     className="inputForm"
                                     required
@@ -174,32 +164,33 @@ const Pago = () => {
                                     type="email"
                                     value={emailConfirmacion}
                                     onChange={(e) =>
-                                        setEmailConfirmacion(
-                                            e.target.value
-                                        )
+                                        setEmailConfirmacion(e.target.value)
                                     }
                                     id="repEmail"
                                     className="inputForm"
                                     required
                                 />
-                                <label htmlFor="repEmail">
-                                    Repetir Email:
-                                </label>
+                                <label htmlFor="repEmail">Repetir Email:</label>
                             </div>
-                            {error && (
-                                <p style={{ color: "red" }}>{error}</p>
-                            )}
-                            {
-                                carrito.map((prod)=>(
-                                    <button key={prod.item.id} type="submit" className="enviarTarjeta" onClick={()=>handlerControlStock(prod.item.id, prod.item.stock)}>Pagar</button>
-                                ))
-                                
-                            }
+                            {error && <p style={{ color: "red" }}>{error}</p>}
+                            {carrito.map((prod) => (
+                                <button
+                                    key={prod.item.id}
+                                    type="submit"
+                                    className="enviarTarjeta"
+                                    onClick={() =>
+                                        handlerControlStock(
+                                            prod.item.id,
+                                            prod.item.stock
+                                        )
+                                    }
+                                >
+                                    Pagar
+                                </button>
+                            ))}
                         </div>
                         <div className="datosFormulario datosFormulario--card">
-                            <legend className="titlePago">
-                                Datos de Pago
-                            </legend>
+                            <legend className="titlePago">Datos de Pago</legend>
                             <div className="usuario">
                                 <input
                                     type="text"
@@ -244,7 +235,6 @@ const Pago = () => {
                                     <label
                                         htmlFor="fecha"
                                         className="expiracion"
-                                        
                                     >
                                         Expiracion
                                     </label>
@@ -270,9 +260,7 @@ const Pago = () => {
                                     <input
                                         type="text"
                                         className="ccvNumero"
-                                        onKeyUp={(e) =>
-                                            setCcv(e.target.value)
-                                        }
+                                        onKeyUp={(e) => setCcv(e.target.value)}
                                         id="ccv"
                                         maxLength={3}
                                         minLength={3}
@@ -293,10 +281,14 @@ const Pago = () => {
                     </form>
                 </div>
             )}
-            <Link className="volver" to='/'>Volver a la pagina principal</Link>
+            <Link
+                className="volver"
+                to="/"
+            >
+                Volver a la pagina principal
+            </Link>
         </div>
-    )
-}
+    );
+};
 
-
-export default Pago
+export default Pago;

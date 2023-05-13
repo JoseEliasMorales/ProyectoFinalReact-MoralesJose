@@ -10,3 +10,8 @@
     max-height: 180px;
     object-fit: contain;
 }
+
+.icon{
+    position: absolute;
+    right: 45%;
+}
