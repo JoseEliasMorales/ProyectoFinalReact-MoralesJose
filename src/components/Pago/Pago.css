@@ -1,0 +1,178 @@
+.card{
+    position: absolute;
+    bottom: -160px;
+    left: 30%;
+}
+
+.formularioYPago{
+    display: flex;
+}
+
+.contenedorFormulario{
+    position: relative;
+    width: 50%;
+    border-radius: 25px;
+    box-shadow:
+        0px 0px 3.5px rgba(0, 0, 0, 0.037),
+        0px 0px 8.5px rgba(0, 0, 0, 0.053),
+        0px 0px 16px rgba(0, 0, 0, 0.065),
+        0px 0px 28.6px rgba(0, 0, 0, 0.077),
+        0px 0px 53.5px rgba(0, 0, 0, 0.093),
+        0px 0px 128px rgba(0, 0, 0, 0.13)
+;
+}
+
+.datosFormulario{
+    width: 100%;
+    padding: 2rem;
+    margin: auto;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.datosFormulario .usuario{
+    position: relative;
+}
+
+.datosFormulario .usuario input {
+    width: 100%;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    border: none;
+    
+    outline: none;
+}
+
+.datosFormulario .usuario label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    color: #39393978;
+    pointer-events: none;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.datosFormulario .usuario input:focus ~ label,
+.datosFormulario .usuario input:valid ~ label {
+    top: -24px;
+    left: 0;
+    color: #5d5d5d;
+    font-size: 1rem
+}
+
+.datosFormulario--card{
+    background-color: #e7e5e5;
+    position: relative;
+    padding: 3rem;
+    width: 50%;
+    position: absolute;
+    right: -70%;
+    bottom: 10%;
+}
+
+.datosExpiracion{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.expiracion{
+    font-size: 1rem;
+}
+
+.ccvNumero{
+    width: 50%;
+    height: 20px;
+    border: none;
+    text-align: center;
+}
+
+.ccv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+
+.inputForm{
+    height: 40px;
+    max-width: 80%;
+    border-radius: 25px;
+    border: none;
+    background-color: #e7e7e7;
+}
+
+
+.inputForm--card{
+    background-color: #ffffff;
+    border-radius: 0;
+}
+
+.titlePago{
+    margin: 2rem;
+}
+
+.fecha{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 1rem;
+}
+
+.enviarTarjeta{
+    background-color: #1a1a1a;
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: -30px;
+    left:45%;
+    transition: all 0.45s;
+}
+
+.enviarTarjeta:hover{
+    transform: translateY(-7px);
+}
+
+.enviarTarjeta:active{
+    color: #1a1a1a;
+    background-color: #fff;
+}
+
+.volver{
+    text-decoration: none;
+    background-color: green;
+    width: 200px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    color: #e7e5e5;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 1rem;
+    right: 45%;
+}
+
+.iniciarSesionPedido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

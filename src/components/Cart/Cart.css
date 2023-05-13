@@ -24,3 +24,12 @@
 .finalizar--compra:active{
     transform: translateY(-7px);
 }
+
+.carritoVacio{
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 10rem;
+}

@@ -8,10 +8,9 @@ import Cart from "./components/Cart/Cart";
 import Usuario from "./components/Usuario/Usuario";
 import Checkout from "./components/Checkout/Checkout";
 import { UsuarioProvider } from "./context/UsuarioContext";
-
+import Pago from "./components/Pago/Pago";
 
 function App() {
-
     return (
         <>
             <BrowserRouter>
@@ -31,9 +30,22 @@ function App() {
                                 path="/item/:idZapatilla"
                                 element={<ItemDetailContainer />}
                             />
-                            <Route path='/cart' element={<Cart />} />
-                            <Route path='/sesion' element={<Usuario />}/>
-                            <Route path="/checkout" element={<Checkout />}/>
+                            <Route
+                                path="/cart"
+                                element={<Cart />}
+                            />
+                            <Route
+                                path="/sesion"
+                                element={<Usuario />}
+                            />
+                            <Route
+                                path="/checkout"
+                                element={<Checkout />}
+                            />
+                            <Route
+                                path="/payment"
+                                element={<Pago />}
+                            />
                         </Routes>
                     </CarritoProvider>
                 </UsuarioProvider>

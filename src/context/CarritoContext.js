@@ -1,40 +1,53 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
-export const CarritoContext = createContext({carrito:[]})
+export const CarritoContext = createContext({ carrito: [] })
 
-export const CarritoProvider = ({children})=>{
-    const [carrito, setCarrito]= useState([])
+export const CarritoProvider = ({ children }) => {
+    const [carrito, setCarrito] = useState([])
 
-    const agregarAlCarrito =(item,cantidad)=>{
-        if(enCarrito(item.id)){
-            console.log("producto a agregado");
-        }else{
-            setCarrito(prev=>[...prev,{item,cantidad}])
+    useEffect(() => {
+        const consultaCarrito = JSON.parse(localStorage.getItem('carrito'))
+
+        if (consultaCarrito) {
+            setCarrito(consultaCarrito)
         }
-    } 
+    }, [])
+
+    const agregarAlCarrito = (item, cantidad) => {
+        if (enCarrito(item.id)) {
+            console.log("producto a agregado");
+        } else {
+            setCarrito(prev => [...prev, { item, cantidad }])
+        }
+    }
+
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    }, [carrito])
 
 
 
-    
-    
 
-    const eliminarDelCarrito=(id)=>{
-        const actualizarCarrito = carrito.filter(prod=>prod.item.id!==id)
+
+
+
+    const eliminarDelCarrito = (id) => {
+        const actualizarCarrito = carrito.filter(prod => prod.item.id !== id)
         setCarrito(actualizarCarrito)
     }
 
-    const vaciarCarrito = ()=>{
+    const vaciarCarrito = () => {
         setCarrito([])
     }
 
 
 
-    const enCarrito = (id)=>{
-        return carrito.some((prod)=>prod.item.id===id)
-    } 
+    const enCarrito = (id) => {
+        return carrito.some((prod) => prod.item.id === id)
+    }
 
-    return(
-        <CarritoContext.Provider value={{carrito, agregarAlCarrito, vaciarCarrito, eliminarDelCarrito}}>
+    return (
+        <CarritoContext.Provider value={{ carrito, agregarAlCarrito, vaciarCarrito, eliminarDelCarrito }}>
             {children}
         </CarritoContext.Provider>
     )

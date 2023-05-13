@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+
 .tituloResumen{
     font-size: 2rem;
     text-transform: uppercase;
@@ -9,17 +11,19 @@
     display: flex;
 }
 
-.contenedorDetailsCheckout{
-    width: 50%;
+.formCheckout{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.checkoutItem{
-    display: flex;
-    gap: 5rem;
-    font-family: "Josefin Sans", sans-serif;
-    justify-content: center;
-    border-bottom: 1px dotted black;
+
+
+.contenedorDetailsCheckout{
+    max-width: 90%;
 }
+
 
 .itemTotal{
     font-size: 2rem;
@@ -37,4 +41,70 @@
 
 .detailName{
     min-width: 100px;
+}
+
+.contenedorCheckout{
+    background-color: #fff;
+
+    margin-left:4rem;
+}
+
+.imgCheckout{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.itemCheckout{
+    font-size: 1.1rem;
+    min-width: 100px;
+}
+
+.checkout{
+    display: flex;
+    gap: 5rem;
+    font-family: "Josefin Sans", sans-serif;
+    justify-content: space-around;
+    border-bottom: 1px dotted black;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+
+
+
+.btnIniciarSesion--checkout{
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+
+.flecha{
+    transform: rotate(90deg);
+}
+
+.seguirComprando{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    padding: 0.5rem;
+    background-color: green;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.pedido{
+    text-align: center;
+}
+
+.botonPedido{
+    display: flex;
+    justify-content: center;
 }
