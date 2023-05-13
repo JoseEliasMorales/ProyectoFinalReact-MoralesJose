@@ -9,8 +9,6 @@ const IniciarSesion = ({ setUsuario }) => {
     const [contrasenia, setContrasenia] = useState("");
 
 
-
-
     //manejador para iniciar sesion
     const handleIniciarSesion = (e) => {
         e.preventDefault();
