@@ -25,7 +25,6 @@ const Usuario = () => {
         setIniciarOCrear(true);
     };
 
-
     //verificamos si hay usuario logueado
     if (usuario === null) {
         return (
