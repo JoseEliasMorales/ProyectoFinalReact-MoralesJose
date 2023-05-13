@@ -5,6 +5,7 @@ import Zapatilla from "./zapatillas.png";
 import CrearUsuario from "../CrearUsuario/CrearUsuario";
 import UsuarioContext from "../../context/UsuarioContext";
 
+
 const Usuario = () => {
     const [iniciarOCrear, setIniciarOCrear] = useState(true);
     const { usuario, loginUsuario } = useContext(UsuarioContext);
@@ -24,6 +25,7 @@ const Usuario = () => {
         setIniciarOCrear(true);
     };
 
+
     //verificamos si hay usuario logueado
     if (usuario === null) {
         return (
@@ -40,23 +42,25 @@ const Usuario = () => {
                 {
                     /*configuramos el boton a mostrar*/
                     iniciarOCrear ? (
+                        <><p className="consultaCuenta">No Tiene cuenta? </p>
                         <button
                             className="btnCrearUsuario"
                             onClick={handleChangeCrear}
                         >
-                            Registrarse
+                            Regístrate
                         </button>
+                        </>
                     ) : (
+                        <><p className="consultaCuenta">Ya tienes cuenta?</p>
                         <button
                             className="btnCrearUsuario"
                             onClick={handleChangeIniciar}
                         >
                             Iniciar Sesion
                         </button>
+                        </>
                     )
                 }
-                <hr />
-                <p>O puedes autenticarte de la siguiente forma</p>
                 <img
                     className="zapatillaPintura"
                     src={Zapatilla}

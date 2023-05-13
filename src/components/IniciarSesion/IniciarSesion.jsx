@@ -1,12 +1,16 @@
 import { useState } from "react";
 import "./iniciarSesion.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, } from "firebase/auth";
 import { Toast, MySwal } from "../../asyncmock";
+
 const IniciarSesion = ({ setUsuario }) => {
     const auth = getAuth();
 
     const [email, setEmail] = useState("");
     const [contrasenia, setContrasenia] = useState("");
+
+
+    
 
 
     //manejador para iniciar sesion
