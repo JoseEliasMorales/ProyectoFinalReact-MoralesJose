@@ -10,15 +10,7 @@ const CarritoDeCompras = () => {
 
     const {carrito}=useContext(CarritoContext)
     const totalCantidad = carrito.reduce((total, items)=>items.cantidad>items.item.stock?total+items.item.stock:total+items.cantidad,0)
-    const MySwal = withReactContent(Swal)
-   /*  const errorStock=()=>{
-        if(totalCantidad<carrito.reduce((total,items)=>total + items.cantidad,0)){
-            MySwal.fire({
-                icon:'error',
-                title:'Stock maximo de producto alcanzado'
-            })
-        }
-    } */
+
 
     return (
         <Link to='/cart' className="carritoDeCompras">
